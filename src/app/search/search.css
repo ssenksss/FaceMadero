@@ -1,11 +1,10 @@
 .search-container {
-  max-width: 400px;
-  margin: 1rem auto;
-  padding: 1rem;
-  background: #cfe1e5; /* svetlozelena bela */
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #d0e3d7; /* Pastelno zelena pozadina */
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 128, 0, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Suptilna senka */
 }
 
 mat-form-field {
@@ -13,28 +12,53 @@ mat-form-field {
   margin-bottom: 1rem;
 }
 
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 30px;
+  color: #2a4a77; /* Plavi ton za naslov */
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+button.mat-raised-button {
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Lora', serif;
+  transition: background-color 0.3s ease;
+}
+
+button.mat-raised-button[color="primary"] {
+  background-color: #5f9ea0; /* Plavi dugme */
+  color: white;
+}
+
+button.mat-raised-button[color="primary"]:hover {
+  background-color: #2a4a77; /* Tamnija plava na hover */
+}
+
+button.mat-raised-button[color="accent"] {
+  background-color: #c0a27e; /* Zlatna nijansa */
+  color: white;
+}
+
+button.mat-raised-button[color="accent"]:hover {
+  background-color: #b38b5b; /* Tamnija zlatna pri hover */
+}
+
+button.mat-raised-button[color="warn"] {
+  background-color: #ff5722; /* Crveno-narandžasta boja */
+  color: white;
+}
+
+button.mat-raised-button[color="warn"]:hover {
+  background-color: #f44336; /* Tamnija crveno-narandžasta pri hover */
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
-}
-
-button[mat-raised-button] {
-  background-color: #2e7d32; /* tamnozelena */
-  color: white;
-  transition: background-color 0.3s ease;
-}
-
-button[mat-raised-button]:hover {
-  background-color: #1b5e20;
-}
-
-button[mat-button] {
-  color: #2e7d32;
-  font-weight: 600;
-}
-
-button[mat-button]:hover {
-  background-color: rgba(46, 125, 50, 0.1);
-  border-radius: 4px;
+  margin-top: 1rem;
 }

@@ -1,12 +1,19 @@
-<h2>Profil korisnika</h2>
+<div class="profile-container">
+  <h2>Profil korisnika</h2>
 
-<ul>
-  <li><strong>Ime:</strong> {{ data.ime }}</li>
-  <li><strong>Prezime:</strong> {{ data.prezime }}</li>
-  <li><strong>Email:</strong> {{ data.email }}</li>
-  <li><strong>Telefon:</strong> {{ data.telefon }}</li>
-  <li><strong>Adresa:</strong> {{ data.adresa }}</li>
-  <li><strong>Datum rođenja:</strong> {{ data.datumRodjenja }}</li>
-</ul>
+  <div class="profile-info">
+    <ul>
+      <li><strong>Ime:</strong> {{ data.ime }}</li>
+      <li><strong>Prezime:</strong> {{ data.prezime }}</li>
+      <li><strong>Email:</strong> {{ data.email }}</li>
+      <li><strong>Telefon:</strong> {{ data.telefon }}</li>
+      <li><strong>Adresa:</strong> {{ data.adresa }}</li>
+      <li><strong>Instagram:</strong> <a href="https://www.instagram.com/{{ data.instagram }}" target="_blank">{{ '@' + data.instagram }}</a></li>
+      <li><strong>Specijalnost:</strong> {{ data.specijalnost }}</li>
+    </ul>
+  </div>
 
-
+  <div class="button-container">
+    <button (click)="bookAppointment()">Rezerviši Tretman</button>
+  </div>
+</div>

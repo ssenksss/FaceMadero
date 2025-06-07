@@ -90,7 +90,6 @@ export class Home implements OnChanges {
     return usluga.id;
   }
 
-
   get trenutnoDostupneUsluge(): Usluga[] {
     return this.usluge.filter(u => u.status === 'trenutno');
   }

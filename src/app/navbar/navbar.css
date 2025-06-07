@@ -7,9 +7,17 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.logo img {
-  height: 40px;
+
+/* Postavljanje slike kao pozadine za .logo div */
+.logo {
+  background-image: url('/assets/images/main.jpg');  /* Putanja do tvoje slike */
+  background-size: contain;  /* Prilagodite sliku da se uklopi unutar div-a */
+  background-repeat: no-repeat;  /* Sprečava ponavljanje slike */
+  background-position: center;  /* Centriranje slike u div-u */
+  width: 200px;  /* Širina div-a */
+  height: 100px; /* Visina div-a */
 }
+
 
 .nav-links {
   list-style: none;
@@ -21,6 +29,7 @@
   text-decoration: none;
   color: #fff;
   font-weight: 600;
+  font-family: 'Lora', serif;  /* Dodato da bi se koristio isti font kao u h1 */
   transition: 0.3s ease;
 }
 

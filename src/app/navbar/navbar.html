@@ -1,13 +1,14 @@
 <nav class="navbar">
   <div class="logo">
-    <img src="assets/logo.png" alt="FaceMadero logo" />
   </div>
 
+  <!-- Navigacija za neregistrovane korisnike -->
   <ul class="nav-links" *ngIf="!isLoggedIn">
     <li><a routerLink="/login">Prijava</a></li>
     <li><a routerLink="/register">Registracija</a></li>
   </ul>
 
+  <!-- Navigacija za prijavljene korisnike -->
   <ul class="nav-links" *ngIf="isLoggedIn">
     <li><a routerLink="/home">Početna</a></li>
     <li><a routerLink="/profile">Profil</a></li>
@@ -16,5 +17,10 @@
     <li><a (click)="logout()">Odjava</a></li>
   </ul>
 
-
+  <!-- Ikona menija na mobilnim uređajima -->
+  <div class="menu-icon" (click)="toggleMenu()">
+    <span class="menu-bar"></span>
+    <span class="menu-bar"></span>
+    <span class="menu-bar"></span>
+  </div>
 </nav>

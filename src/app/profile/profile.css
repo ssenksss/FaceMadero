@@ -1,13 +1,62 @@
-.profile-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  min-width: 300px;
+/* Profil stilizacija */
+.profile-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  font-family: 'Lora', serif; /* Koristimo isti font kao u navigaciji */
 }
 
-.actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 20px;
+/* Naslov profila */
+.profile-container h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+/* Lista podataka o korisniku */
+.profile-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-info li {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+.profile-info strong {
+  color: #5f9ea0; /* Akcentna boja za oznake */
+}
+
+/* Button za rezervaciju */
+.button-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+button {
+  background-color: #A8D5BA; /* Boja dugmeta koja se slaže sa navbar */
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #D4AF37; /* Zlata boja na hover */
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(1px);
 }

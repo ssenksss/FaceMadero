@@ -1,12 +1,86 @@
+/* Login card stilizacija */
 .login-card {
-  max-width: 400px;
-  margin: 60px auto;
-  padding: 20px;
+  max-width: 450px;
+  margin: 80px auto;
+  padding: 40px;
   text-align: center;
+  border-radius: 12px;
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.1);  /* Suptilna senka za bolji efekat */
+  background-color: #ffffff;  /* Bela pozadina */
+  font-family: 'Lora', serif; /* Font kao na Welcome delu */
+}
+
+h2 {
+  margin-bottom: 40px;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;  /* Tamnija siva boja za naslov */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .form-field {
   display: block;
   width: 100%;
   margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.mat-form-field input {
+  padding: 12px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+  background-color: #f7f7f7;  /* Svetla pozadina za input polja */
+}
+
+.mat-form-field input:focus {
+  border-color: #5f9ea0;  /* Plavi ton za fokisanu ivicu */
+  background-color: #fff;  /* Bela pozadina kada je u fokusu */
+  box-shadow: 0px 0px 5px rgba(95, 158, 160, 0.3);  /* Suptilna senka na fokus */
+}
+
+.mat-form-field-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: #5f9ea0;  /* Plavi dugme */
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #2a4a77;  /* Tamnija plava na hover */
+  transform: translateY(-3px);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.mat-error {
+  font-size: 13px;
+  color: #f44336;
+  margin-top: 5px;
+  font-weight: 500;
+}
+
+.mat-card {
+  box-shadow: none;
+  padding: 0;
 }

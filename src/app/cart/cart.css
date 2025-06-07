@@ -1,6 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #e6f4ea; /* nežna zelena */
+  margin: 0;
+  padding: 0;
+}
+
 .cart-container {
   margin: 20px auto;
   max-width: 900px;
+  background-color: #fff; /* bele pozadine za korpu */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .buttons {
@@ -14,3 +27,50 @@
   font-size: 1.2rem;
   color: #666;
 }
+
+/* Mat-Table Poboljšanja */
+mat-header-cell, mat-cell {
+  padding: 12px;
+  text-align: left;
+}
+
+mat-header-cell {
+  background-color: #2e7d32; /* Akcentna boja zelena */
+  color: white;
+}
+
+mat-cell {
+  background-color: #f9f9f9;
+}
+
+/* Zaobljene kartice i dugmići */
+mat-icon-button {
+  border-radius: 50%;
+}
+
+mat-card-actions button {
+  background-color: #2e7d32;
+  color: #fff;
+  border-radius: 20px;
+  padding: 8px 20px;
+  transition: background-color 0.3s ease;
+}
+
+mat-card-actions button:hover {
+  background-color: #1b5e20; /* Tamnija zelena pri hover */
+}
+
+mat-card-actions button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+}
+
+/* Animacije za praznu korpu */
+.empty-message {
+  font-family: 'Poppins', sans-serif;  /* Isti font kao u welcome delu */
+  font-size: 20px;
+  color: #2a4a77;  /* Plavi ton, isti kao kod "Dobrodošli" */
+  text-align: center;
+  margin-top: 40px;
+}
+

@@ -1,11 +1,84 @@
-.services-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #d0e3d7; /* Pastelno zelena pozadina */
+  margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-mat-card {
-  width: 300px;
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+mat-card.usluga-card {
+  width: 320px;
+  background-color: #ffffff; /* Bela kartica */
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Suptilna senka */
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+mat-card.usluga-card:hover {
+  transform: translateY(-5px); /* Lagana animacija prilikom hovera */
+}
+
+mat-card-title {
+  font-family: 'Lora', serif;
+  font-size: 24px;
+  color: #5f9ea0; /* Plava nijansa za naslove */
+  font-weight: 600;
+}
+
+mat-card-subtitle {
+  font-size: 14px;
+  color: #4f6877; /* Sivo-plava za podnaslove */
+  font-weight: 400;
+}
+
+mat-card-content {
+  padding: 0 16px 16px;
+}
+
+mat-card-content p {
+  margin: 8px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+mat-card-actions button {
+  background-color: #7fb5b5; /* Plava nijansa za dugmadi */
+  color: #fff;
+  border-radius: 24px;
+  padding: 8px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+mat-card-actions button:hover {
+  background-color: #5f9ea0; /* Tamnija plava pri hover-u */
+}
+
+mat-card-actions button:disabled {
+  background-color: #c0c0c0; /* Svetlo siva za onemogućena dugmad */
+}
+
+mat-card-image {
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }

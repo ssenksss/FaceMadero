@@ -1,10 +1,6 @@
-
 <div *ngIf="searchActive(); else prikaziTabove">
   <div class="cards-container" *ngIf="filteredUsluge().length > 0; else nemaRezultata">
-    <mat-card
-      class="usluga-card"
-      *ngFor="let usluga of filteredUsluge(); trackBy: trackById"
-    >
+    <mat-card class="usluga-card" *ngFor="let usluga of filteredUsluge(); trackBy: trackById">
       <mat-card-header>
         <mat-card-title>{{ usluga.naziv }}</mat-card-title>
         <mat-card-subtitle *ngIf="usluga.ocena !== undefined">Ocena: {{ usluga.ocena }}/5</mat-card-subtitle>
@@ -15,12 +11,7 @@
         <p *ngIf="usluga.status === 'uskoro'"><em>Usluga uskoro dostupna</em></p>
       </mat-card-content>
       <mat-card-actions>
-        <button
-          mat-raised-button
-          color="primary"
-          (click)="dodajUKorpu(usluga)"
-          [disabled]="usluga.status === 'uskoro'"
-        >
+        <button mat-raised-button color="primary" (click)="dodajUKorpu(usluga)" [disabled]="usluga.status === 'uskoro'">
           Dodaj u korpu
         </button>
       </mat-card-actions>

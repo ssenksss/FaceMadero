@@ -1,4 +1,3 @@
-
 <div class="cart-container" *ngIf="items.length > 0; else emptyCart">
   <table mat-table [dataSource]="items" class="mat-elevation-z8">
 
@@ -46,5 +45,7 @@
 </div>
 
 <ng-template #emptyCart>
-  <p class="empty-message">Vaša korpa je prazna.</p>
+  <mat-card class="empty-cart">
+    <p class="empty-message">Vaša korpa je prazna.</p>
+  </mat-card>
 </ng-template>

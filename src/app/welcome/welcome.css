@@ -1,11 +1,65 @@
 .welcome-container {
   text-align: center;
   margin-top: 100px;
+  background-color: #d0e3d7;  /* Pastelno zelena pozadina */
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);  /* Suptilna senka */
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: 40px;
+  color: #2a4a77;  /* Plavi ton za naslov */
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: #4f6877;  /* Sivo-plava nijansa */
+  margin-bottom: 40px;
 }
 
 .button-group {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+button {
+  padding: 10px 30px;
+  border-radius: 30px;
+  font-size: 14px;  /* Manji font za dugmadi */
+  font-weight: 600;
+  font-family: 'Lora', serif;  /* Dodato da bi se koristio isti font kao u h1 */
+  transition: background-color 0.3s ease;
+}
+
+button.mat-raised-button[color="primary"] {
+  background-color: #5f9ea0;  /* Plavi dugme */
+  color: white;
+}
+
+button.mat-raised-button[color="primary"]:hover {
+  background-color: #2a4a77;  /* Tamnija plava na hover */
+}
+
+button.mat-raised-button[color="accent"] {
+  background-color: #c0a27e;  /* Zlatna nijansa */
+  color: white;
+}
+
+button.mat-raised-button[color="accent"]:hover {
+  background-color: #b38b5b;  /* Tamnija zlatna pri hover */
+}
+
+button.mat-raised-button[color="warn"] {
+  background-color: #ff5722;  /* Crveno-narandžasta boja */
+  color: white;
+}
+
+button.mat-raised-button[color="warn"]:hover {
+  background-color: #f44336;  /* Tamnija crveno-narandžasta pri hover */
 }
