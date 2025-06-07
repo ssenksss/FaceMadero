@@ -1,0 +1,31 @@
+.search-page {
+  padding: 24px;
+}
+
+.search-bar {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.content {
+  display: flex;
+  gap: 24px;
+}
+
+.filters {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.results {
+  flex: 1;
+}
+
+.result-item {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}

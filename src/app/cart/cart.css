@@ -1,0 +1,16 @@
+.cart-container {
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+.buttons {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.empty-message {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}

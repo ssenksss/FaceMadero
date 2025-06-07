@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Profil korisnika</h2>
+
+<form [formGroup]="profileForm" (ngSubmit)="save()" class="profile-form">
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ime</mat-label>
+    <input matInput formControlName="ime" [disabled]="true">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prezime</mat-label>
+    <input matInput formControlName="prezime" [disabled]="true">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" [disabled]="true">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Telefon</mat-label>
+    <input matInput formControlName="telefon" required>
+    <mat-error *ngIf="profileForm.get('telefon')?.hasError('required')">
+      Telefon je obavezno polje
+    </mat-error>
+    <mat-error *ngIf="profileForm.get('telefon')?.hasError('minlength')">
+      Telefon mora imati najmanje 6 karaktera
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Adresa</mat-label>
+    <input matInput formControlName="adresa" required>
+    <mat-error *ngIf="profileForm.get('adresa')?.hasError('required')">
+      Adresa je obavezna
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Datum rođenja</mat-label>
+    <input matInput formControlName="datumRodjenja" [disabled]="true">
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button type="button" (click)="cancel()">Otkaži</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="profileForm.invalid">
+      Sačuvaj
+    </button>
+  </div>
+
+</form>

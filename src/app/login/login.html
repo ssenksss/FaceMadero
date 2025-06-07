@@ -1,0 +1,23 @@
+<mat-card class="login-card">
+  <h2>Prijava</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email" />
+      <mat-error *ngIf="loginForm.get('email')?.hasError('required')">Email je obavezan</mat-error>
+      <mat-error *ngIf="loginForm.get('email')?.hasError('email')">Email nije validan</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Lozinka</mat-label>
+      <input matInput type="password" formControlName="lozinka" />
+      <mat-error *ngIf="loginForm.get('lozinka')?.hasError('required')">Lozinka je obavezna</mat-error>
+      <mat-error *ngIf="loginForm.get('lozinka')?.hasError('minlength')">Min 6 karaktera</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">
+      Prijavi se
+    </button>
+  </form>
+</mat-card>

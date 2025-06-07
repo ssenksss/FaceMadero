@@ -1,0 +1,72 @@
+<div class="search-container">
+  <!-- Input za pretragu -->
+  <mat-form-field appearance="fill" class="search-input">
+    <mat-label>Pretraga po nazivu</mat-label>
+    <input
+      matInput
+      [value]="query()"
+      (input)="query.set($any($event.target).value)"
+    />
+  </mat-form-field>
+
+  <!-- Filteri -->
+  <div class="filters">
+    <mat-form-field appearance="fill">
+      <mat-label>Tip</mat-label>
+      <mat-select
+        [value]="filters().type"
+        (selectionChange)="updateFilter('type', $event.value)"
+      >
+        <mat-option value="">Svi</mat-option>
+        <mat-option value="masaza">Masaža</mat-option>
+        <mat-option value="nokti">Nokti</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Trajanje</mat-label>
+      <mat-select
+        [value]="filters().duration"
+        (selectionChange)="updateFilter('duration', $event.value)"
+      >
+        <mat-option value="">Bilo koje</mat-option>
+        <mat-option value="30">30 minuta</mat-option>
+        <mat-option value="60">60 minuta</mat-option>
+        <mat-option value="90">90 minuta</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Cena</mat-label>
+      <mat-select
+        [value]="filters().priceSort"
+        (selectionChange)="updateFilter('priceSort', $event.value)"
+      >
+        <mat-option value="">Bez sortiranja</mat-option>
+        <mat-option value="asc">Rastuće</mat-option>
+        <mat-option value="desc">Opadajuće</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ocena</mat-label>
+      <mat-select
+        [value]="filters().rating"
+        (selectionChange)="updateFilter('rating', $event.value)"
+      >
+        <mat-option value="">Sve ocene</mat-option>
+        <mat-option value="5">5 ★</mat-option>
+        <mat-option value="4">4+ ★</mat-option>
+        <mat-option value="3">3+ ★</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Akcije -->
+  <div class="search-actions">
+    <button mat-stroked-button color="warn" (click)="clearFilters()">
+      Obriši sve filtere
+    </button>
+    <button mat-raised-button color="primary" (click)="search()">Pretraži</button>
+  </div>
+</div>
