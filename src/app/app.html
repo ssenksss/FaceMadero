@@ -1,4 +1,12 @@
 <app-navbar></app-navbar>
-
-
 <router-outlet></router-outlet>
+
+
+<button
+  *ngIf="showSimulirajLoginButton"
+  mat-raised-button
+  color="warn"
+  (click)="simulirajLogin()"
+>
+  Simuliraj Login
+</button>

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
+import { Component, Output, EventEmitter, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -33,8 +33,6 @@ export class Search {
     priceSort: '',
     rating: '',
   });
-
-  @Input() usluge: any[] = [];
 
   @Output() searchEvent = new EventEmitter<{ query: string; filters: FilterType }>();
   @Output() clearEvent = new EventEmitter<void>();

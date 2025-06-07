@@ -26,8 +26,6 @@ export class Login {
   onSubmit() {
     if (this.loginForm.valid) {
       const { email } = this.loginForm.value;
-
-      // Simulacija "logovanja"
       localStorage.setItem('ulogovanKorisnik', email);
       this.router.navigate(['/home']);
     }

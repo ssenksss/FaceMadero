@@ -1,9 +1,29 @@
-.spacer {
-  flex: 1 1 auto;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #A8D5BA;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-a {
-  color: white;
+.logo img {
+  height: 40px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
   text-decoration: none;
-  margin-left: 10px;
+  color: #fff;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #D4AF37;
 }

@@ -23,7 +23,6 @@ export class Register {
   registerForm: FormGroup;
   userExists = false;
 
-  // Simulacija baze korisnika
   private existingUsers = ['postojeci@korisnik.com'];
 
   constructor(private fb: FormBuilder, private router: Router) {
@@ -40,17 +39,13 @@ export class Register {
   onSubmit() {
     const email = this.registerForm.value.email;
 
-    // Provera da li korisnik postoji (simulacija)
     if (this.existingUsers.includes(email)) {
       this.userExists = true;
       return;
     }
 
-    // Registracija uspešna
     this.userExists = false;
     alert('Uspešno ste registrovani!');
-
-    // Preusmeri na login
     this.router.navigate(['/login']);
   }
 }

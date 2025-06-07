@@ -1,11 +1,20 @@
-<mat-toolbar color="primary">
-  <span>FaceMadero</span>
-  <span class="spacer"></span>
-  <a mat-button routerLink="/">Početna</a>
-  <a mat-button routerLink="/login">Login</a>
-  <a mat-button routerLink="/register">Registracija</a>
-  <a mat-button routerLink="/home">Početna</a>
-  <a mat-button routerLink="/search">Pretraga</a>
-  <a mat-button routerLink="/cart">Korpa</a>
-  <a mat-button routerLink="/profile">Profil</a>
-</mat-toolbar>
+<nav class="navbar">
+  <div class="logo">
+    <img src="assets/logo.png" alt="FaceMadero logo" />
+  </div>
+
+  <ul class="nav-links" *ngIf="!isLoggedIn">
+    <li><a routerLink="/login">Prijava</a></li>
+    <li><a routerLink="/register">Registracija</a></li>
+  </ul>
+
+  <ul class="nav-links" *ngIf="isLoggedIn">
+    <li><a routerLink="/home">Početna</a></li>
+    <li><a routerLink="/profile">Profil</a></li>
+    <li><a routerLink="/search">Pretraga</a></li>
+    <li><a routerLink="/cart">Korpa</a></li>
+    <li><a (click)="logout()">Odjava</a></li>
+  </ul>
+
+
+</nav>

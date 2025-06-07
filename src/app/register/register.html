@@ -54,8 +54,17 @@
       </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="registerForm.invalid">Registruj se</button>
-  </form>
+    <div *ngIf="userExists" class="error-message">
+      Korisnik sa ovim emailom već postoji!
+    </div>
 
-  <p *ngIf="userExists" class="error-message">Korisnik sa ovom email adresom već postoji.</p>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="registerForm.invalid"
+    >
+      Registruj se
+    </button>
+  </form>
 </div>

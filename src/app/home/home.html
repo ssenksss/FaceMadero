@@ -1,62 +1,96 @@
-<mat-tab-group>
-  <mat-tab label="Trenutno dostupno">
-    <div class="cards-container">
-      <mat-card class="usluga-card" *ngFor="let usluga of trenutnoDostupneUsluge; trackBy: trackById">
-        <mat-card-header>
-          <mat-card-title>{{ usluga.naziv }}</mat-card-title>
-          <mat-card-subtitle>Ocena: {{ usluga.ocena }}/5</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ usluga.opis }}</p>
-          <p><strong>Cena:</strong> {{ usluga.cena }} RSD</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="dodajUKorpu(usluga)">
-            Dodaj u korpu
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
 
-  <mat-tab label="Preporučeno">
-    <div class="cards-container">
-      <mat-card class="usluga-card" *ngFor="let usluga of preporuceneUsluge; trackBy: trackById">
-        <mat-card-header>
-          <mat-card-title>{{ usluga.naziv }}</mat-card-title>
-          <mat-card-subtitle>Ocena: {{ usluga.ocena }}/5</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ usluga.opis }}</p>
-          <p><strong>Cena:</strong> {{ usluga.cena }} RSD</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" (click)="dodajUKorpu(usluga)">
-            Dodaj u korpu
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
+<div *ngIf="searchActive(); else prikaziTabove">
+  <div class="cards-container" *ngIf="filteredUsluge().length > 0; else nemaRezultata">
+    <mat-card
+      class="usluga-card"
+      *ngFor="let usluga of filteredUsluge(); trackBy: trackById"
+    >
+      <mat-card-header>
+        <mat-card-title>{{ usluga.naziv }}</mat-card-title>
+        <mat-card-subtitle *ngIf="usluga.ocena !== undefined">Ocena: {{ usluga.ocena }}/5</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ usluga.opis }}</p>
+        <p *ngIf="usluga.cena !== undefined"><strong>Cena:</strong> {{ usluga.cena }} RSD</p>
+        <p *ngIf="usluga.status === 'uskoro'"><em>Usluga uskoro dostupna</em></p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="dodajUKorpu(usluga)"
+          [disabled]="usluga.status === 'uskoro'"
+        >
+          Dodaj u korpu
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
 
-  <mat-tab label="Uskoro">
-    <div class="cards-container">
-      <mat-card class="usluga-card" *ngFor="let usluga of uskoroUsluge; trackBy: trackById">
-        <mat-card-header>
-          <mat-card-title>{{ usluga.naziv }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ usluga.opis }}</p>
-          <p><em>Usluga uskoro dostupna</em></p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button mat-raised-button color="primary" [disabled]="true">
-            Dodaj u korpu
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </mat-tab>
-</mat-tab-group>
-<app-search></app-search>
-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
+  <ng-template #nemaRezultata>
+    <p>Ništa nije pronađeno za kriterijume pretrage.</p>
+  </ng-template>
+</div>
+
+<ng-template #prikaziTabove>
+  <mat-tab-group>
+    <mat-tab label="Trenutno dostupno">
+      <div class="cards-container">
+        <mat-card class="usluga-card" *ngFor="let usluga of trenutnoDostupneUsluge; trackBy: trackById">
+          <mat-card-header>
+            <mat-card-title>{{ usluga.naziv }}</mat-card-title>
+            <mat-card-subtitle>Ocena: {{ usluga.ocena }}/5</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ usluga.opis }}</p>
+            <p><strong>Cena:</strong> {{ usluga.cena }} RSD</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="dodajUKorpu(usluga)">
+              Dodaj u korpu
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Preporučeno">
+      <div class="cards-container">
+        <mat-card class="usluga-card" *ngFor="let usluga of preporuceneUsluge; trackBy: trackById">
+          <mat-card-header>
+            <mat-card-title>{{ usluga.naziv }}</mat-card-title>
+            <mat-card-subtitle>Ocena: {{ usluga.ocena }}/5</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ usluga.opis }}</p>
+            <p><strong>Cena:</strong> {{ usluga.cena }} RSD</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="dodajUKorpu(usluga)">
+              Dodaj u korpu
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Uskoro">
+      <div class="cards-container">
+        <mat-card class="usluga-card" *ngFor="let usluga of uskoroUsluge; trackBy: trackById">
+          <mat-card-header>
+            <mat-card-title>{{ usluga.naziv }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{ usluga.opis }}</p>
+            <p><em>Usluga uskoro dostupna</em></p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" [disabled]="true">
+              Dodaj u korpu
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</ng-template>
