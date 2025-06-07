@@ -4,12 +4,11 @@ import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { filter } from 'rxjs/operators';
 import { Profile } from '../profile/profile';
-import {patchFetchToLoadInMemoryAssets} from '@angular/build/src/utils/server-rendering/fetch-patch';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatDialogModule, NgOptimizedImage],
+  imports: [CommonModule, RouterModule, MatDialogModule],
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css']
 })
@@ -51,5 +50,4 @@ export class Navbar {
     navLinks?.classList.toggle('active');
   }
 
-  protected readonly patchFetchToLoadInMemoryAssets = patchFetchToLoadInMemoryAssets;
 }

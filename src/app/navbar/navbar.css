@@ -7,15 +7,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Postavljanje slike kao pozadine za .logo div */
-.logo {
-  background-image: url('/assets/images/main.jpg');  /* Putanja do tvoje slike */
-  background-size: contain;  /* Prilagodite sliku da se uklopi unutar div-a */
-  background-repeat: no-repeat;  /* Sprečava ponavljanje slike */
-  background-position: center;  /* Centriranje slike u div-u */
-  width: 200px;  /* Širina div-a */
-  height: 100px; /* Visina div-a */
+.logo img {
+  height: 40px;
 }
 
 
