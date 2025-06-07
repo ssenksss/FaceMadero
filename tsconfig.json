@@ -12,15 +12,17 @@
     "isolatedModules": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "preserve"
+    "module": "esnext",               // ili "es2022"
+    "moduleResolution": "node",       // ← ovo je najvažnije
+    "target": "es2022"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "typeCheckHostBindings": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "enableSignals": true
   },
   "files": [],
   "references": [
