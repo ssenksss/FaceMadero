@@ -6,6 +6,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { CartService, ServiceItem } from '../cart/cart.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
+
 
 type UslugaStatus = 'trenutno' | 'preporuceno' | 'uskoro';
 
@@ -58,8 +62,8 @@ export class Search {
 
   rezultati: Usluga[] = [];
 
-  constructor() {
-  }
+  constructor(private cartService: CartService, private snackBar: MatSnackBar) {}
+
 
   updateFilter(filterKey: keyof typeof this.filters, value: string): void {
     this.filters[filterKey] = value;
@@ -115,6 +119,16 @@ export class Search {
   }
 
   dodajUKorpu(usluga: Usluga): void {
-    console.log('Dodato u korpu:', usluga);
+    const item: ServiceItem = {
+      id: usluga.id,
+      naziv: usluga.naziv,
+      opis: usluga.opis,
+      cena: usluga.cena,
+      ocena: usluga.ocena
+    };
+
+    this.cartService.addItem(item);
+    alert('Usluga je dodata u korpu!');
   }
+
 }

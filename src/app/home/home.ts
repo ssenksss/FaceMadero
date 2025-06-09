@@ -4,6 +4,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {FormsModule} from '@angular/forms';
+import { CartService, ServiceItem } from '../cart/cart.service';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 interface Usluga {
   id: number;
@@ -21,7 +23,12 @@ interface Usluga {
   templateUrl: './home.html',
   styleUrls: ['./home.css']
 })
+
+
 export class Home {
+
+  constructor(private cartService: CartService, private snackBar: MatSnackBar) {}
+
   @Input() searchQuery: string = '';
 
   usluge: Usluga[] = [
@@ -38,8 +45,21 @@ export class Home {
     { id: 11, naziv: 'Tretman leđa', opis: 'Dubinsko čišćenje i masaža leđa', cena: 4000, ocena: 4.7, status: 'uskoro' },
   ];
 
-  dodajUKorpu(usluga: Usluga) {
-    console.log('Dodato u korpu:', usluga);
+  dodajUKorpu(usluga: Usluga): void {
+    const item: ServiceItem = {
+      id: usluga.id,
+      naziv: usluga.naziv,
+      opis: usluga.opis,
+      cena: usluga.cena,
+      ocena: usluga.ocena
+    };
+
+    this.cartService.addItem(item);
+
+    this.snackBar.open('Usluga je dodata u korpu!', 'Zatvori', {
+      duration: 3000,
+    });
+
   }
 
   searchActive(): boolean {
