@@ -5,11 +5,12 @@ import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { filter } from 'rxjs/operators';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, Navbar, RouterOutlet, MatButtonModule, MatDialogModule],
+  imports: [CommonModule, FormsModule,Navbar, RouterOutlet, MatButtonModule, MatDialogModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -41,13 +42,10 @@ export class App {
   simulirajLogin() {
     localStorage.setItem('user', 'test');
     this.isLoggedIn = true;
-
-    // Forcira da se ruta re-renderuje i triggeruje NavigationEnd
-    const currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
+    this.router.navigate(['/home']);  // DIREKTNO preusmeri na home
   }
+
+
 
 
   onSearch(event: { query: string; filters: any }) {

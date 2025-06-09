@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // Importuj Angular Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +10,6 @@ import { Router } from '@angular/router'; // Importuj Angular Router
   styleUrls: ['./profile.css']
 })
 export class Profile {
-  // Podaci o salonu
   data = {
     ime: 'Ana',
     prezime: 'Zečević',
@@ -18,14 +17,42 @@ export class Profile {
     telefon: '+381 60 123 45 67',
     adresa: 'Kraljevo, Srbija',
     instagram: 'facemadero',
-    specijalnost: 'Tretmani lica i tela'
+    specijalnost: 'Tretmani lica i tela',
+
+    cosmetics: [
+      { src: 'assets/images/Thalgo.jpg', alt: 'Kozmetika 1' },
+      { src: 'assets/images/silk.jpg', alt: 'Kozmetika 2' },
+      { src: 'assets/images/EllaBache.jpg', alt: 'Kozmetika 3' }
+    ],
+
+    works: [
+      { src: 'assets/images/lice.jpg', alt: 'Rad 1' },
+      { src: 'assets/images/depilacija.jpg', alt: 'Rad 2' },
+      { src: 'assets/images/pedikir2.PNG', alt: 'Rad 3' },
+      { src: 'assets/images/presoterapija.jpg', alt: 'Rad 4' },
+      { src: 'assets/images/lice2.PNG', alt: 'Rad 5' },
+      { src: 'assets/images/lice1.jpg', alt: 'Rad 6' }
+
+    ]
   };
 
-  // Injectuj Router za navigaciju
+  modalOpen = false;
+  selectedImage: { src: string; alt: string } | null = null;
+
   constructor(private router: Router) {}
 
   bookAppointment() {
-    // Navigacija na početnu stranicu sa svim tretmanima
-    this.router.navigate(['/home']);  // Putanja na home stranicu (tj. stranicu sa svim tretmanima)
+    this.router.navigate(['/home']);
   }
+
+  openModal(img: { src: string; alt: string }) {
+    this.selectedImage = img;
+    this.modalOpen = true;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
+    this.selectedImage = null;
+  }
+
 }

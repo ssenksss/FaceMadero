@@ -1,49 +1,44 @@
 <div class="search-container">
   <h2>Pretraga tretmana</h2>
 
-  <mat-form-field appearance="fill" style="width: 100%;">
+  <mat-form-field appearance="fill">
     <mat-label>Pretraga</mat-label>
     <input
       matInput
-      [value]="query()"
-      (input)="query.set($any($event.target).value)"
+      [value]="query"
+      (input)="query = $any($event.target).value"
       placeholder="Unesi pojam pretrage"
     />
   </mat-form-field>
 
-  <mat-form-field appearance="fill" style="width: 100%;">
+  <mat-form-field appearance="fill">
     <mat-label>Tip usluge</mat-label>
-    <mat-select
-      [value]="filters().type"
-      (selectionChange)="updateFilter('type', $event.value)"
-    >
+    <mat-select [value]="filters.type" (selectionChange)="updateFilter('type', $event.value)">
       <mat-option value="">Sve</mat-option>
       <mat-option value="depilacija">Depilacija</mat-option>
       <mat-option value="masaža">Masaža</mat-option>
       <mat-option value="manikir">Manikir</mat-option>
       <mat-option value="pedikir">Pedikir</mat-option>
       <mat-option value="facial tretman">Facial tretman</mat-option>
+      <mat-option value="presoterapija">Presoterapija</mat-option>
+      <mat-option value="maderoterapija">Maderoterapija</mat-option>
+      <mat-option value="čupanje">Čupanje</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" style="width: 100%;">
+
+  <mat-form-field appearance="fill">
     <mat-label>Sortiranje po ceni</mat-label>
-    <mat-select
-      [value]="filters().priceSort"
-      (selectionChange)="updateFilter('priceSort', $event.value)"
-    >
+    <mat-select [value]="filters.priceSort" (selectionChange)="updateFilter('priceSort', $event.value)">
       <mat-option value="">Bez sortiranja</mat-option>
       <mat-option value="asc">Rastuće</mat-option>
       <mat-option value="desc">Opadajuće</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field appearance="fill" style="width: 100%;">
+  <mat-form-field appearance="fill">
     <mat-label>Ocena</mat-label>
-    <mat-select
-      [value]="filters().rating"
-      (selectionChange)="updateFilter('rating', $event.value)"
-    >
+    <mat-select [value]="filters.rating" (selectionChange)="updateFilter('rating', $event.value)">
       <mat-option value="">Sve</mat-option>
       <mat-option value="4">4 i više</mat-option>
       <mat-option value="4.5">4.5 i više</mat-option>
@@ -52,7 +47,25 @@
   </mat-form-field>
 
   <div class="buttons">
-    <button mat-raised-button color="primary" (click)="search()">Pretraži</button>
+    <button mat-raised-button color="primary" (click)="pretrazi()">Pretraži</button>
     <button mat-button (click)="clearFilters()">Obriši filtere</button>
   </div>
+
+  <div class="cards-container" *ngIf="rezultati.length > 0">
+    <mat-card class="usluga-card" *ngFor="let usluga of rezultati">
+      <mat-card-header>
+        <mat-card-title>{{ usluga.naziv }}</mat-card-title>
+        <mat-card-subtitle>Ocena: {{ usluga.ocena ?? 'N/A' }}/5</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>{{ usluga.opis }}</p>
+        <p><strong>Cena:</strong> {{ usluga.cena ?? 'Nije dostupna' }} RSD</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="dodajUKorpu(usluga)">Dodaj u korpu</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <p *ngIf="rezultati.length === 0" class="no-results">Nema rezultata za zadate kriterijume.</p>
 </div>

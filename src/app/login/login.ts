@@ -26,8 +26,9 @@ export class Login {
   onSubmit() {
     if (this.loginForm.valid) {
       const { email } = this.loginForm.value;
-      localStorage.setItem('ulogovanKorisnik', email);
+      localStorage.setItem('user', email);
       this.router.navigate(['/home']);
     }
   }
+
 }

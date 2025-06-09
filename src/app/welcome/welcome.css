@@ -1,6 +1,27 @@
+.welcome-images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;  /* Razmak između slika */
+  margin: 15px 0 15px 0;
+}
+
+.welcome-images img {
+  max-width: 20%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  object-fit: cover; /* Slika se lepo uklapa u dimenzije */
+  cursor: pointer; /* Opcionalno, da pokazuje da je slika klikabilna */
+  transition: transform 0.3s ease;
+}
+
+.welcome-images img:hover {
+  transform: scale(1.05); /* Blago uvećanje slike na hover */
+}
+
 .welcome-container {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 10px;
   background-color: #d0e3d7;  /* Pastelno zelena pozadina */
   padding: 50px;
   border-radius: 12px;
@@ -35,6 +56,7 @@ button {
   font-weight: 600;
   font-family: 'Lora', serif;  /* Dodato da bi se koristio isti font kao u h1 */
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 button.mat-raised-button[color="primary"] {

@@ -18,7 +18,6 @@ export class CartService {
   items$ = this.itemsSubject.asObservable();
 
   addItem(item: ServiceItem) {
-    // Opcionalno možeš proveriti da li proizvod već postoji, pa ne dodavati duplikat
     if (!this.items.find(i => i.id === item.id)) {
       this.items.push(item);
       this.itemsSubject.next(this.items);

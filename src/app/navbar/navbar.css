@@ -5,12 +5,17 @@
   padding: 16px 32px;
   background-color: #A8D5BA;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size:22px;
 }
 
 .logo img {
-  height: 40px;
+  height: 90px;
+  width: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
 }
-
 
 .nav-links {
   list-style: none;
@@ -22,7 +27,7 @@
   text-decoration: none;
   color: #fff;
   font-weight: 600;
-  font-family: 'Lora', serif;  /* Dodato da bi se koristio isti font kao u h1 */
+  font-family: 'Lora', serif;
   transition: 0.3s ease;
 }
 

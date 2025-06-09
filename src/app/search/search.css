@@ -2,9 +2,10 @@
   max-width: 450px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #d0e3d7; /* Pastelno zelena pozadina */
+  background-color: rgba(214, 234, 223, 0.51);
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Suptilna senka */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Lora', serif;
 }
 
 mat-form-field {
@@ -13,9 +14,8 @@ mat-form-field {
 }
 
 h2 {
-  font-family: 'Lora', serif;
   font-size: 30px;
-  color: #2a4a77; /* Plavi ton za naslov */
+  color: #2a4a77;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -25,35 +25,17 @@ button.mat-raised-button {
   border-radius: 30px;
   font-size: 14px;
   font-weight: 600;
-  font-family: 'Lora', serif;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 button.mat-raised-button[color="primary"] {
-  background-color: #5f9ea0; /* Plavi dugme */
+  background-color: #5f9ea0;
   color: white;
 }
 
 button.mat-raised-button[color="primary"]:hover {
-  background-color: #2a4a77; /* Tamnija plava na hover */
-}
-
-button.mat-raised-button[color="accent"] {
-  background-color: #c0a27e; /* Zlatna nijansa */
-  color: white;
-}
-
-button.mat-raised-button[color="accent"]:hover {
-  background-color: #b38b5b; /* Tamnija zlatna pri hover */
-}
-
-button.mat-raised-button[color="warn"] {
-  background-color: #ff5722; /* Crveno-narandžasta boja */
-  color: white;
-}
-
-button.mat-raised-button[color="warn"]:hover {
-  background-color: #f44336; /* Tamnija crveno-narandžasta pri hover */
+  background-color: #2a4a77;
 }
 
 .buttons {
@@ -61,4 +43,23 @@ button.mat-raised-button[color="warn"]:hover {
   justify-content: space-between;
   gap: 0.5rem;
   margin-top: 1rem;
+}
+
+.cards-container {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.usluga-card {
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.no-results {
+  margin-top: 1.5rem;
+  font-style: italic;
+  color: #777;
+  text-align: center;
 }

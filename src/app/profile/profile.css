@@ -1,24 +1,76 @@
-/* Profil stilizacija */
-.profile-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+.quote-banner {
+  max-width: 600px;
+  height: 150px;
+  margin: 20px auto 15px auto;
   border-radius: 12px;
-  font-family: 'Lora', serif; /* Koristimo isti font kao u navigaciji */
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-/* Naslov profila */
-.profile-container h2 {
-  text-align: center;
-  font-size: 32px;
-  font-weight: 700;
-  color: #2c3e50;
-  margin-bottom: 20px;
+.quote-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* Lista podataka o korisniku */
+.profile-container {
+  max-width: 1010px;
+  margin: 0 auto 60px auto;
+  padding: 25px 40px 50px 40px;
+  background-color: rgba(214, 234, 223, 0.73);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  font-family: 'Lora', serif;
+  color: #2a4a77;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-main {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(219, 236, 225, 0.87);
+
+  padding: 22px 40px;
+  border-radius: 12px;
+  color: #2a4a77;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.6);
+  gap: 30px;
+}
+
+.profile-info {
+  flex: 1 1 60%;
+}
+
+.brands-images {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  align-items: flex-end;
+  justify-content: center;
+
+}
+
+
+.brands-images img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.profile-info h2 {
+  margin-top: 15px;
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
 .profile-info ul {
   list-style: none;
   padding: 0;
@@ -26,37 +78,112 @@
 
 .profile-info li {
   font-size: 18px;
-  margin-bottom: 12px;
-  color: #333;
+  margin-bottom: 14px;
+  color: #2f4f4f;
 }
 
 .profile-info strong {
-  color: #5f9ea0; /* Akcentna boja za oznake */
+  color: #3c6e47;
 }
 
-/* Button za rezervaciju */
+.profile-info a {
+  color: #2a4a77;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.profile-info a:hover {
+  color: #3c6e47;
+}
+
 .button-container {
-  text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 button {
-  background-color: #A8D5BA; /* Boja dugmeta koja se slaže sa navbar */
+  background-color: rgba(60, 110, 82, 0.85);
   color: white;
-  padding: 12px 20px;
-  font-size: 18px;
+  padding: 12px 30px;
+  font-size: 14px;
   font-weight: 600;
   border: none;
-  border-radius: 8px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-  background-color: #D4AF37; /* Zlata boja na hover */
+  background-color: rgba(42, 74, 119, 0.88);
   transform: translateY(-3px);
 }
 
 button:active {
   transform: translateY(1px);
+}
+
+.works-gallery {
+  margin-top: 40px;
+}
+
+.gallery-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 18px;
+  padding-bottom: 12px;
+  scroll-behavior: smooth;
+}
+
+.gallery-row::-webkit-scrollbar {
+  height: 4px;
+}
+
+.gallery-row::-webkit-scrollbar-track {
+  background: rgba(219, 236, 225, 0.66);
+  border-radius: 10px;
+}
+
+.gallery-row::-webkit-scrollbar-thumb {
+  background-color: #a0bd94;
+  border-radius: 10px;
+}
+
+.gallery-row img {
+  width: 180px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.gallery-row img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  cursor: auto;
 }

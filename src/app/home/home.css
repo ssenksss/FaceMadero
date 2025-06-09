@@ -1,8 +1,12 @@
+nav, .navbar, .nav-link {
+  font-family: 'Poppins', sans-serif;
+}
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&family=Poppins:wght@300;400;600&display=swap');
+
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #d0e3d7; /* Pastelno zelena pozadina */
+  background-color: #d0e3d7;
   margin: 0;
   padding: 0;
   color: #333;
@@ -18,27 +22,27 @@ body {
 
 mat-card.usluga-card {
   width: 320px;
-  background-color: #ffffff; /* Bela kartica */
+  background-color: #ffffff;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Suptilna senka */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s ease;
 }
 
 mat-card.usluga-card:hover {
-  transform: translateY(-5px); /* Lagana animacija prilikom hovera */
+  transform: translateY(-5px);
 }
 
 mat-card-title {
   font-family: 'Lora', serif;
   font-size: 24px;
-  color: #5f9ea0; /* Plava nijansa za naslove */
+  color: #5f9ea0;
   font-weight: 600;
 }
 
 mat-card-subtitle {
   font-size: 14px;
-  color: #4f6877; /* Sivo-plava za podnaslove */
+  color: #4f6877;
   font-weight: 400;
 }
 
@@ -59,7 +63,7 @@ mat-card-actions {
 }
 
 mat-card-actions button {
-  background-color: #7fb5b5; /* Plava nijansa za dugmadi */
+  background-color: #7fb5b5;
   color: #fff;
   border-radius: 24px;
   padding: 8px 24px;
@@ -69,11 +73,11 @@ mat-card-actions button {
 }
 
 mat-card-actions button:hover {
-  background-color: #5f9ea0; /* Tamnija plava pri hover-u */
+  background-color: #5f9ea0;
 }
 
 mat-card-actions button:disabled {
-  background-color: #c0c0c0; /* Svetlo siva za onemogućena dugmad */
+  background-color: #c0c0c0;
 }
 
 mat-card-image {
